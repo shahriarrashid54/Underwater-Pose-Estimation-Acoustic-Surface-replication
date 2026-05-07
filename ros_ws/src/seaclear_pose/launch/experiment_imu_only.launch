@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Section IV-A: IMU only configuration -->
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="duration" default="150.0"/>
+  <arg name="out_path" default="/root/results/imu_only.csv"/>
+
+  <include file="$(find seaclear_pose)/launch/bringup.launch">
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <node pkg="seaclear_pose" type="pressure_to_depth.py" name="pressure_to_depth"
+        output="screen"/>
+
+  <node pkg="robot_localization" type="ekf_localization_node"
+        name="ekf_seaclear" output="screen" clear_params="true">
+    <rosparam command="load" file="$(find seaclear_pose)/config/ekf_common.yaml"/>
+    <rosparam command="load" file="$(find seaclear_pose)/config/ekf_imu_only.yaml"/>
+  </node>
+
+  <node pkg="seaclear_pose" type="trajectory_publisher.py"
+        name="trajectory_publisher" output="screen"/>
+
+  <node pkg="seaclear_pose" type="record_experiment.py"
+        name="record_experiment" required="true" output="screen">
+    <param name="duration" value="$(arg duration)"/>
+    <param name="out_path" value="$(arg out_path)"/>
+  </node>
+</launch>

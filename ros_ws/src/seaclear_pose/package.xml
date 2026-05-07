@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>seaclear_pose</name>
+  <version>0.1.0</version>
+  <description>
+    Replication of "Underwater Robot Pose Estimation Using Acoustic Methods
+    and Intermittent Position Measurements at the Surface" (Maer, Tamas, Busoniu, 2022/2023).
+    EKF pose estimation with IMU/DVL/USBL/depth and surface-based intermittent corrections.
+  </description>
+
+  <maintainer email="shahriarrashid54@gmail.com">replication</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf</depend>
+  <depend>tf2_ros</depend>
+  <depend>robot_localization</depend>
+  <depend>uuv_gazebo</depend>
+  <depend>uuv_descriptions</depend>
+  <depend>uuv_control_cascaded_pid</depend>
+  <depend>gazebo_ros</depend>
+</package>

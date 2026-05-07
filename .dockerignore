@@ -1,0 +1,6 @@
+results/
+ros_ws/build/
+ros_ws/devel/
+ros_ws/install/
+.git/
+*.bag

@@ -1,0 +1,25 @@
+# catkin build outputs
+ros_ws/build/
+ros_ws/devel/
+ros_ws/install/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# experiment debug logs (rebuilt on each run)
+results/full_run*.log
+results/*.log
+
+# rosbag (if any)
+*.bag
+
+# misc
+*.swp
